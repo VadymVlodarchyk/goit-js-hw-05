@@ -3,7 +3,12 @@ const sortByDescendingFriendCount = (users) => {
         .toSorted((a, b) => b.friends.length - a.friends.length);
     return sortFriends;
 }
-
+const getTotalBalanceByGender = (users, gender) => {
+    const totalBalance = users
+        .filter(user => user.gender === gender)
+        .reduce((acc, item) => acc + item.balance, 0);
+    return totalBalance;
+};
 
 console.log(sortByDescendingFriendCount([
     {
@@ -82,12 +87,7 @@ gender: "male"
 
 
 
-const getTotalBalanceByGender = (users, gender) => {
-    const totalBalance = users
-        .filter(user => user.gender === gender)
-        .reduce((acc, item) => acc + item.balance, 0);
-    return totalBalance;
-};
+
 
 
 const allUsers = [
